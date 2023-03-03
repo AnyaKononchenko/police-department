@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
+
 const Detective = (props) => {
-    const { detective, cases } = props;
+    const { detective, cases, onDelete } = props;
+
     return (
         <article className='detective'>
             <div className="detective__header">
@@ -18,6 +20,7 @@ const Detective = (props) => {
                     <button>Reveal more details</button>
                 </Link>
             </div>
+            <button onClick={() => onDelete(detective.id)}>Discharge this detective</button>
         </article>
     )
 }

@@ -8,6 +8,7 @@ import Team from '../pages/Team';
 import NewCase from '../pages/NewCase';
 import DetectiveDetails from '../pages/DetectiveDetails';
 import CaseDetails from '../pages/CaseDetails';
+import NewDetective from '../pages/NewDetective';
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
             <Route path='/new-case' element={<NewCase />}/>
             <Route path='/detective' element={<DetectiveDetails />}/>
             <Route path='/edit-case' element={<CaseDetails />}/>
+            <Route path='/add-detective' element={<NewDetective />}/>
             <Route path='*' element={<NotFound />}/>
           </Routes>
         </main>

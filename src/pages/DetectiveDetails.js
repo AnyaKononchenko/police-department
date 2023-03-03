@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom'
-import { updateDetective } from '../features/departmentSlice';
+import { useLocation, useNavigate } from 'react-router-dom'
+import { updateDetective } from '../features/detectivesSlice';
 
 const DetectiveDetails = () => {
     const { state } = useLocation();
     const [detective, setDetective] = useState(state);
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
@@ -33,7 +34,7 @@ const DetectiveDetails = () => {
                 <div className="form-row">
                     <p>Some other information</p>
                 </div>
-                <button>Edit Profile</button>
+                <button type='submit'>Edit Profile</button>
             </form>
         </section>
     )

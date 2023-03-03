@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom'
-import { updateCase } from '../features/departmentSlice';
+import { updateCase } from '../features/recordsSlice';
 
 const CaseDetails = () => {
-    const { detectives } = useSelector(state => state.departmentR);
+    const { detectives } = useSelector(state => state.detectives);
 
     const { state } = useLocation();
     const [currentCase, setCurrentCase] = useState(state);

@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { createCase } from '../features/departmentSlice';
+import { createCase } from '../features/recordsSlice';
 import { v4 as uuidv4 } from 'uuid';
 
 const NewCase = () => {
-    const { detectives } = useSelector(state => state.departmentR);
+    const { detectives } = useSelector(state => state.detectives);
     const dispatch = useDispatch();
-
+ 
     const initialCaseState = {
         id: '',
         name: '',
         status: 'registered',
         details: '',
-        assigned: 'no one'
+        assigned: detectives[0].id
     }
 
     const [newCase, setNewCase] = useState(initialCaseState)

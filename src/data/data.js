@@ -1,4 +1,4 @@
-export const cases = [
+export const records = [
     {
         id: "1",
         name: "Murder",

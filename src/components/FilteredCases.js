@@ -3,8 +3,10 @@ import { useSelector } from 'react-redux';
 import Case from './Case';
 
 const FilteredCases = ({ active }) => {
-    const {cases, detectives } = useSelector((state) => state.departmentR);
-    const filtered = active.toLowerCase() === 'all' ? cases : cases.filter((item) => item.status === active.toLowerCase());
+    const { records } = useSelector((state) => state.records);
+    const { detectives } = useSelector((state) => state.detectives);
+
+    const filtered = active.toLowerCase() === 'all' ? records : records.filter((record) => record.status === active.toLowerCase());
     return (
         <>
             {filtered.map((item) => {

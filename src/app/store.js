@@ -1,8 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit'
-import departmentReducer from '../features/departmentSlice'
+import { configureStore } from '@reduxjs/toolkit';
+import detectivesReducer from '../features/detectivesSlice';
+import recordsReducer from '../features/recordsSlice';
 
 export default configureStore({
   reducer: {
-    departmentR : departmentReducer
+    detectives: detectivesReducer,
+    records: recordsReducer
   }
 })
