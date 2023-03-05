@@ -15,9 +15,11 @@ const Team = () => {
         dispatch(deleteDetective(id));
     }
 
-    const detectivesElement = detectives.map((detective) => {
-        const foundCases = records.filter(item => item.assigned === detective.id);
-        return <Detective key={detective.id} detective={detective} cases={foundCases} onDelete={handleDeleteDetective} />
+    const detectivesElement = detectives.map((detective, index) => {
+        if(index !== 0) {
+            const foundCases = records.filter(item => item.assigned === detective.id);
+            return <Detective key={detective.id} detective={detective} cases={foundCases} onDelete={handleDeleteDetective} />
+        }
     })
 
     return (

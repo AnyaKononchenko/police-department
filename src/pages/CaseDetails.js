@@ -5,6 +5,7 @@ import { updateCase } from '../features/recordsSlice';
 
 const CaseDetails = () => {
     const { detectives } = useSelector(state => state.detectives);
+    const { discharged } = useSelector(state => state.discharged);
 
     const { state } = useLocation();
     const [currentCase, setCurrentCase] = useState(state);
@@ -13,9 +14,13 @@ const CaseDetails = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        let assignedTo = detectives.find((detective) => detective.name === currentCase.assigned).id;
+        if(!assignedTo){
+            assignedTo = discharged.find((detective) => detective.name === currentCase.assigned).id;
+        }
         dispatch(updateCase({
             ...currentCase,
-            assigned:  detectives.find((detective) => detective.name === currentCase.assigned).id
+            assigned: assignedTo
         }
         ));
     }

@@ -1,8 +1,8 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import { records } from "../data/data"
+import { records, NOT_ASSIGNED } from "../data/data";
 
 export const recordsSlice = createSlice({
-  name: "department",
+  name: "records",
   initialState: {
     records
   },
@@ -13,17 +13,25 @@ export const recordsSlice = createSlice({
     },
     updateCase: (state, action) => {
       const { records } = state;
-      let foundCase = records.find((record) => record.id === action.payload.id);
-      if (foundCase) {
-        foundCase.id = action.payload.id;
-        foundCase.name = action.payload.name;
-        foundCase.details = action.payload.details;
-        foundCase.status = action.payload.status;
-        foundCase.assigned = action.payload.assigned;
+      const foundRecord = records.find((record) => record.id === action.payload.id);
+      if (foundRecord) {
+        foundRecord.id = action.payload.id;
+        foundRecord.name = action.payload.name;
+        foundRecord.details = action.payload.details;
+        foundRecord.status = action.payload.status;
+        foundRecord.assigned = action.payload.assigned;
       }
+    },
+    updateAssigned: (state, action) => {
+      const {records} = state;
+      const foundRecord = records.find((record) => record.id === action.payload);
+      if(foundRecord){
+        foundRecord.assigned = foundRecord.status !== 'closed' ? NOT_ASSIGNED : foundRecord.status;
+      }
+      console.log(current(foundRecord));
     }
   }
-})
+});
 
-export const { createCase, updateCase } = recordsSlice.actions;
+export const { createCase, updateCase, updateAssigned } = recordsSlice.actions;
 export default recordsSlice.reducer;

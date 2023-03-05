@@ -1,3 +1,5 @@
+export const NOT_ASSIGNED = '007-free';
+
 export const records = [
     {
         id: "1",
@@ -40,10 +42,14 @@ export const records = [
         status: "registered",
         details: "",
         assigned: "2"
-    }
+    },
 ]
 
 export const detectives = [
+    {
+        id: NOT_ASSIGNED,
+        name: "Not Assigned"
+    },
     {
         id: "1",
         name: "John Smith"
@@ -55,5 +61,12 @@ export const detectives = [
     {
         id: "3",
         name: "Samantha Brill"
-    }
+    },
+]
+
+export const dischargedDetectives = [
+    {
+        id: "20",
+        name: "Cillian Gabel"
+    },
 ]

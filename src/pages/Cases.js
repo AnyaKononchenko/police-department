@@ -13,12 +13,14 @@ const Cases = () => {
   return (
     <section className="cases">
       <div className="cases-statuses flex-centered">
-        <div className="case-status active" onClick={handleClick}>All</div>
-        <div className="case-status" onClick={handleClick}>Registered</div>
-        <div className="case-status" onClick={handleClick}>Opened</div>
-        <div className="case-status" onClick={handleClick}>Closed</div>
+        <div className="case-status__option active" onClick={handleClick}>All</div>
+        <div className="case-status__option" onClick={handleClick}>Registered</div>
+        <div className="case-status__option" onClick={handleClick}>Opened</div>
+        <div className="case-status__option" onClick={handleClick}>Closed</div>
       </div>
-      <FilteredCases active={active}/>
+      <div className="cases__body">
+        <FilteredCases active={active}/>
+      </div>
     </section>
   )
 }

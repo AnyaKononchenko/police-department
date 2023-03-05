@@ -20,7 +20,10 @@ export const detectivesSlice = createSlice({
         },
         deleteDetective: (state, action) => {
             const { detectives } = state;
-            return detectives.filter((detective) => detective.id !== action.payload);
+            return {
+                ...state,
+                detectives: detectives.filter((detective) => detective.id !== action.payload)
+            };
         },
     }
 })

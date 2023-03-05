@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom'
-import { updateDetective } from '../features/detectivesSlice';
+import { deleteDetective, updateDetective } from '../features/detectivesSlice';
+import { addDischarged } from '../features/dischargedSlice';
+import { updateAssigned, updateCase } from '../features/recordsSlice';
 
 const DetectiveDetails = () => {
     const { state } = useLocation();
+    const { records } = useSelector((state) => state.records);
+    const { discharged } = useSelector((state) => state.discharged)
+
     const [detective, setDetective] = useState(state);
     const navigate = useNavigate();
 
@@ -16,7 +21,20 @@ const DetectiveDetails = () => {
     }
 
     const handleChange = (event) => {
-        setDetective(prevState => ({...prevState, [event.target.name]: event.target.value}));
+        setDetective(prevState => ({ ...prevState, [event.target.name]: event.target.value }));
+    }
+
+    const handleDelete = (event, detective) => {
+        event.stopPropagation();
+        const assignedRecords = records.filter((record) => record.assigned === detective.id);
+        console.log('found records: ', assignedRecords);
+        assignedRecords.forEach((record) => {
+            dispatch(updateAssigned(detective.id))
+        });
+        console.log('updated records:', records);
+        dispatch(addDischarged(detective))
+        dispatch(deleteDetective(detective.id));
+        navigate('/team');
     }
 
     return (
@@ -36,6 +54,7 @@ const DetectiveDetails = () => {
                 </div>
                 <button type='submit'>Edit Profile</button>
             </form>
+            <button onClick={((event) => handleDelete(event, detective))}>Discharge this detective</button>
         </section>
     )
 }

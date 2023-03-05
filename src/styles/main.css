@@ -1,0 +1,174 @@
+/* home component starts */
+
+.department {
+  min-height: 80vh;
+  background-image: url('https://images.unsplash.com/photo-1565018968331-61145555526b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 1rem;
+}
+
+.department__header {
+  /* min-height: 10%; */
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.department__body {
+  flex-direction: row-reverse;
+  justify-content: start;
+  align-self: stretch;
+  /* min-height: 90%; */
+}
+
+.department-stats {
+  background-color: var(--color-4);
+  padding: 1rem;
+  opacity: 0.8;
+  border-radius: 10px;
+}
+
+.department-stats p {
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.department-chart {
+  width: 40vw;
+  height: 70vh;
+  margin: 0 10vw;
+  position: relative;
+}
+
+
+
+/* home component ends */
+
+
+/* cases component starts */
+
+.cases {}
+
+.cases__body {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+
+}
+
+.case {
+  background-color: #B39A84;
+  padding: 1.5rem;
+  position: relative;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#case-id {
+  position: absolute;
+  top: .1rem;
+  left: .5rem;
+  font-size: .8rem;
+}
+
+.case-clip {
+  height: 7px;
+  width: 30%;
+  background-color: #614b38;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.case__header {
+  height: 50%;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.case__header>p:last-child {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.case__icon {
+  font-size: 1.5rem;
+}
+
+.case__body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.case__body>p,
+.case__body>a {
+  text-align: left;
+}
+
+.case-status>p:last-child{
+  margin-top: .5rem;
+  font-size: 1.2rem;
+  font-family: 'Special Elite', cursive;
+}
+
+/* filter cases */
+.cases-statuses {
+  gap: 1rem;
+}
+
+.case-status__option {
+  padding: .8rem;
+  border-radius: 0 0 10px 10px; 
+}
+
+.case-status__option:hover {
+  background-color: var(--color-1);
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--header-color);
+  color: white;
+}
+
+/* cases component ends */
+
+
+/* case details component starts */
+
+.case-details {
+  min-height: 80vh;
+}
+
+/* case details component ends */
+
+/* team component starts */
+
+.detective {
+  width: 15vw;
+}
+
+.detective__header>img {
+  width: 80%;
+  min-height: auto;
+}
+
+/* team component ends */
+
+
+/* detective details component starts */
+
+/* detective details component ends */
+
+
+/* new case component starts */
+
+/* new case details component ends */
+
+
+/* new detective component starts */
+
+/* new detective details component ends */
